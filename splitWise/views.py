@@ -23,3 +23,13 @@ def splitwise_auth(request):
 
 def home(request):
     return render(request, 'splitWise/home.html')
+
+
+def splitwise_oauth_callback(request):
+    # print(request.session['splitwise_secret'])
+    oauth_token = request.GET.get('oauth_token')
+    oauth_verifier = request.GET.get('oauth_verifier')
+    sObj = Splitwise("Dax89deUEI7YN9WHMwvqNx8hz1yWnYlTXaillgXF", "HHLJmrpGzM96uHzsOrTS6hHQPmRYE8s45XHSO9Xn")
+    access_token = sObj.getAccessToken(oauth_token, request.session['splitwise_secret'], oauth_verifier)
+    request.session['splitwise_access_token'] = access_token
+    return redirect('splitWise-home')
