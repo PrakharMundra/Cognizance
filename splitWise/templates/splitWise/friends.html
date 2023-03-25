@@ -1,0 +1,13 @@
+{% extends 'splitWise/base.html' %}
+    {%block content%}
+    <h1>My Splitwise Friends</h1>
+    {% if friends %}
+      <ul>
+        {% for friend in friends %}
+          <li>{{ friend.getFirstName}}</li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>You don't have any friends in Splitwise yet.</p>
+    {% endif %}
+    {%endblock%}

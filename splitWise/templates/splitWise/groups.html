@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My Splitwise Friends</title>
+  </head>
+  <body>
+     <h1>Groups</h1>
+  <ul>
+    {% for group in groups %}
+      <li><a href="{% url 'get_group' group.id %}">{{ group.name }}</a></li>
+    {% endfor %}
+  </ul>
+  </body>
+</html>

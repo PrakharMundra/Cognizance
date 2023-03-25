@@ -1,0 +1,16 @@
+{% extends 'splitWise/base.html' %}
+
+{% block content %}
+  <h1>Expense Details</h1>
+  <p><strong>Description:</strong> {{ expense.getDescription }}</p>
+  <p><strong>Amount:</strong> {{ expense.getCost }}</p>
+  <p><strong>Group:</strong> {{ group.getName }}</p>
+  <h2>Users:</h2>
+  <ul>
+    {% for user in users %}
+      <li>
+        <strong>{{ user.getFirstName }}</strong> paid {{ user.getPaidShare }} and owes {{ user.getOwedShare }}
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
