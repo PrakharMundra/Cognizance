@@ -5,7 +5,9 @@ body {
   line-height: 1.5;
   color: #fdfdfd;
   text-align: left;
-  background-color: #050404
+  background-color: #050404;
+  background-image: url("outline3.jpeg");
+  
 }
 
 .image-container {
@@ -75,4 +77,214 @@ h1 {
 }
 p{
   font-family: Oxygen, sans-serif;
+}
+.yellow-button1
+{
+  background-color: rgb(17, 17, 16);
+  color: rgb(242, 234, 234);
+  border: 2px solid gold;
+  padding: 10px;
+  margin :1px;
+  width: 200px;
+  border-radius: 8px;
+}
+
+/* .directions {
+  text-align: center;
+  font-size: 22px;
+  padding: 20px;
+}
+
+.spin-the-wheel {
+  margin: auto;
+  width: 200px;
+  cursor: pointer;
+}
+
+label {
+  cursor: pointer;
+  position: relative;
+  display: block;
+}
+
+input {
+  width: 0;
+  height: 0;
+  position: absolute;
+  opacity: 0;
+}
+
+.wheel {
+  position: relative;
+  height: 200px;
+  width: 200px;
+}
+
+.option {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  padding: 10px;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 5px black;
+}
+
+.o1 {
+  background-color: red;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 100%;
+}
+
+.o2 {
+  background-color: blue;
+  top: 0;
+  right: 0;
+  border-top-right-radius: 100%;
+}
+
+.o3 {
+  background-color: purple;
+  bottom: 0;
+  left: 0;
+  border-bottom-left-radius: 100%;
+}
+
+.o4 {
+  background-color: green;
+  bottom: 0;
+  right: 0;
+  border-bottom-right-radius: 100%;
+}
+
+.message {
+  position: absolute;
+  padding: 20px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  box-shadow: 0 0 5px black;
+  top: 50px;
+  left: 30px;
+  width: 100px;
+  z-index: 5;
+  opacity: 0;
+}
+
+.clicker {
+  position: absolute;
+  z-index: 30;
+  height: 0;
+  width: 0;
+  left: 80px;
+  top: -3px;
+  border-width: 20px 20px 0 20px;
+  transform: scaley(2);
+  transform-origin: 50% 0;
+  border-color: #111 transparent transparent transparent;
+  border-style: solid;
+ 
+}
+
+:checked ~ .wheel {
+  animation-name: spin;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(1665deg);
+  }
+}
+
+:checked ~ .message {
+  animation-name: winner;
+  animation-delay: 2.9s;
+  animation-duration: 0.5s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+
+@keyframes winner {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+:checked ~ .clicker {
+  animation-name: Clicker;
+  animation-duration: 3s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: both;
+}
+@keyframes Clicker {
+  0%, 100% {
+    transform:  rotate(0deg) scaley(2);
+  }
+   5%, 10%, 16%, 23%, 31%, 40%, 50%, 61%, 73%, 86% {
+    transform:  rotate(-15deg) scaley(2);
+ 
+  }
+  7.5%, 13%, 20.5%, 27%, 35.5%, 45%, 55.5%, 67%, 79.5% {
+    transform:  rotate(-10deg) scaley(2);
+  } 
+}
+
+@keyframes Linkable {
+  0% {
+    bottom: 100%;
+  }
+  
+  100% {
+    bottom: 0;
+  }
+} */
+
+.group-info
+{
+  margin-left:30%;
+  
+}
+.group-heading
+{
+  margin-left: 30%;
+  color: gold;
+  padding-bottom: 8px;
+}
+.adexp {
+  width: 50%; /* adjust width as needed */
+  margin: 0 auto; /* center align */
+  text-align: center; /* center align text */
+}
+.inp {
+  display: flex;
+  flex-direction:row;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-top: 30px;
+}
+
+label {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+input {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  font-size: 16px;
+  width: 100%;
+  max-width: 300px;
 }
