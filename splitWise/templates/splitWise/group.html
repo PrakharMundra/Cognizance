@@ -1,0 +1,21 @@
+{% extends 'splitWise/base.html' %}
+
+{% block content %}
+<h1>Group Details:</h1>
+<ul>
+    <li><strong>Group Name:</strong> {{ group.getName }}</li>
+    <li><strong>Members:</strong>
+        <ul>
+            {% for member in group.getMembers %}
+            <li>{{ member.getFirstName }} {{ member.getLastName }}</li>
+              <ul>
+              {% for balance in member.getBalances %}
+              <li>{{balance.getAmount}}</li>
+              {% endfor %}
+              </ul>
+            {% endfor %}
+        </ul>
+    </li>
+</ul>
+<a href="{% url 'add_expense' group_id=group.id %}" class="btn btn-primary">Add Expense</a>
+{% endblock %}
