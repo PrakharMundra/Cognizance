@@ -89,7 +89,7 @@ p{
   border-radius: 8px;
 }
 
-/* .directions {
+.directions {
   text-align: center;
   font-size: 22px;
   padding: 20px;
@@ -101,13 +101,13 @@ p{
   cursor: pointer;
 }
 
-label {
+.spinning-wheel {
   cursor: pointer;
   position: relative;
   display: block;
 }
 
-input {
+.spinning-in {
   width: 0;
   height: 0;
   position: absolute;
@@ -249,7 +249,7 @@ input {
   100% {
     bottom: 0;
   }
-} */
+}
 
 .group-info
 {

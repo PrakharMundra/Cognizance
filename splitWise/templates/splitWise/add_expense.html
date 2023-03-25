@@ -13,21 +13,35 @@
       <label for="amount">   Amount  :</label>
       <input type="number" name="amount" step="0.01" min="0.01" required>
     </div>
-    <!-- <div>
-      <label for="payer">Payer:</label>
-      <select name="payer" required>
-        {% for user in members %}
-          <option value="{{ user.getId }}">{{ user.getFirstName }} {{ user.getLastName }}</option>
-        {% endfor %}
-      </select>
-    </div> -->
-    <div>
-      <label for="payer">Selected Payer:</label>
-      <div>{{ payer.getFirstName }} {{ payer.getLastName }}</div>
-    </div>
-    <div>
-      <button type="button" class="btn yellow-button">Add Expense</button>
-    </div>
-  </form>
+<div>
+<div class="directions">
+Click the wheel to spin!
 </div>
+<div class="spin-the-wheel">
+<label class="spinning-wheel">
+  <input class="spinning-in" type="radio">
+  <div class="clicker"></div>
+<div class="wheel">
+<div class="option o1">
+</div>
+<div class="option o2">
+</div>
+<div class="option o3">
+ </div>
+<div class="option o4">
+</div>
+</div>
+<div class="message">
+  {{ payer.getFirstName }} {{ payer.getLastName }}, <br>
+  Will give the treat!
+</div>
+</label>
+</div>
+<div>
+
+<button type="button" class="btn yellow-button">Add Expense</button>
+
+</div>
+  
+
 {% endblock %}
