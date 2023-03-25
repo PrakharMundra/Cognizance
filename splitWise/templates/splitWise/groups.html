@@ -1,12 +1,24 @@
 {% extends 'splitWise/base.html'%}
 {% block content%}
-    <title>My Splitwise Friends</title>
-  </head>
-  <body>
-     <h1>Groups</h1>
+<div class="group-container">
+     <h1>My Groups</h1>
+</div>
+<div class="image-container">
+  {% load static %} <img class="im" src="{% static 'splitWise/famcardImage.png' %}" alt="Image 1">
   <ul>
     {% for group in groups %}
-      <li><a href="{% url 'get_group' group.id %}">{{ group.name }}</a></li>
+      {% comment %} <li><a href="{% url 'get_group' group.id %}">{{ group.name }}</a></li> {% endcomment %}
+      <div style="display: flex; flex-direction: column;">
+        <div class="c1">
+          <a href="{% url 'get_group' group.id %}">
+            <button type="button" class="btn yellow-button" >{{ group.name }}</button>
+            {% comment %} <button type="button" class="btn btn-outline-warning">{{ group.name }}</button> {% endcomment %}
+          </a>
+        <!-- add more button-text pairs as needed -->
+      </div>
+      
+      
     {% endfor %}
   </ul>
-{% {% endblock %}%}
+</div>
+ {% endblock %}
