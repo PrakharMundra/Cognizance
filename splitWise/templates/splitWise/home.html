@@ -1,9 +1,10 @@
 {% extends 'splitWise/base.html' %}
 {%block content%}
     <div>
-        {% load static %}<img src="{% static "splitWise/media/splitwise_logo.png" %}" alt="home" />
+        {% load static %}<img src="{% static "splitWise/splitwise_logo.png" %}" alt="home" />
     </div>
-    <h1>Welcome to My Splitwise App</h1>
+    <h1>Welcome to Fampay</h1>
+    <h3></h3>
     <p>Click the button below to authenticate with Splitwise:</p>
     <button onclick="window.location.href='/splitwise/auth/'">Splitwise</button>
 {% endblock%}

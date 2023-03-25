@@ -272,3 +272,4 @@ def expense_details(request, expense_id):
     users = expense.getUsers()
 
     return render(request, 'splitWise/expense_details.html', {'expense': expense, 'group': group, 'users': users})
+

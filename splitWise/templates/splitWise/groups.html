@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
+{% extends 'splitWise/base.html'%}
+{% block content%}
     <title>My Splitwise Friends</title>
   </head>
   <body>
@@ -11,5 +9,4 @@
       <li><a href="{% url 'get_group' group.id %}">{{ group.name }}</a></li>
     {% endfor %}
   </ul>
-  </body>
-</html>
+{% {% endblock %}%}

@@ -14,3 +14,5 @@ urlpatterns = [
     path('group/<int:group_id>/add_expense_normal/', views.add_expense_normal, name='add_expense_normal'),
     path('expense/<int:expense_id>/', views.expense_details, name='expense_details'),
 ]
+
+
