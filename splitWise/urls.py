@@ -11,5 +11,6 @@ urlpatterns = [
     path('splitwise/groups/', views.groups, name='groups'),
     path('groups/<int:group_id>/', views.get_group, name='get_group'),
     path('group/<int:group_id>/add_expense/', views.add_expense, name='add_expense'),
+    path('group/<int:group_id>/add_expense_normal/', views.add_expense_normal, name='add_expense_normal'),
     path('expense/<int:expense_id>/', views.expense_details, name='expense_details'),
 ]

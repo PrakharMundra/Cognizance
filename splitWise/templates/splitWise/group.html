@@ -17,5 +17,6 @@
         </ul>
     </li>
 </ul>
-<a href="{% url 'add_expense' group_id=group.id %}" class="btn btn-primary">Add Expense</a>
+<a href="{% url 'add_expense' group_id=group.id %}" class="btn btn-primary">Spin the wheel</a>
+<a href="{% url 'add_expense_normal' group_id=group.id %}" class="btn btn-primary">Add expense</a>
 {% endblock %}

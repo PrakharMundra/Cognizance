@@ -7,7 +7,7 @@ from splitwise.expense import Expense
 from splitwise.user import ExpenseUser
 from django.contrib import messages
 from splitwise.error import SplitwiseError
-
+import random
 
 def splitwise_auth(request):
     # Replace with your own consumer key and consumer secret
@@ -125,6 +125,77 @@ def add_expense(request, group_id):
         sObj.setAccessToken(request.session['splitwise_access_token'])
 
         # Get the selected user
+        
+        # Get the list of group members
+        group = sObj.getGroup(group_id)
+        members = group.getMembers()
+        payer = random.choice(members)
+        payer_id = payer.id
+        # Calculate the split equally amount
+        amount = request.POST.get('amount')
+        split_equally = request.POST.get('split_equally')
+        amount_per_person=0
+        if split_equally:
+            num_members = len(members)
+            amount_per_person = round(float(amount) / num_members, 2)
+
+        # Create the expense object
+        expense = Expense()
+        expense.setCost(amount)
+        expense.setDescription(request.POST.get('description'))
+        expense.setGroupId(group_id)
+        payer = next((user for user in members if user.getId() == payer_id), None)
+        print(payer.getFirstName())
+        # expense.setDetails(payer.getFirstName())
+        # expense.addUser(payer_id)
+        expense.setCurrencyCode("INR")
+        expense.setUsers([])
+        expense.setSplitEqually(split_equally)
+
+        # Add the users to the expense object
+        for member in members:
+            user = ExpenseUser()
+            user.setId(member.getId())
+            if member.getId() == payer_id:
+                user.setPaidShare(amount)
+                user.setOwedShare("0.00")
+            else:
+                user.setPaidShare("0.00")
+                user.setOwedShare(str(amount_per_person))
+            expense.getUsers().append(user)
+
+        # Create the expense on Splitwise
+        try:
+            expense = sObj.createExpense(expense)
+            print(expense)
+        except :
+         # Handle the exception here
+            print("Error creating expense:")
+
+        if expense:
+            # Redirect to the expense details page
+            # return redirect('expense_details', kwargs={'expense_id': expense.getId(), 'group_id': group_id})
+            return redirect('get_group', group_id=group_id)
+        else:
+            print("f")
+
+    else:
+        # Get the list of group members
+        sObj = Splitwise(Config.consumer_key, Config.consumer_secret)
+        sObj.setAccessToken(request.session['splitwise_access_token'])
+        group = sObj.getGroup(group_id)
+        members = group.getMembers()
+        payer = random.choice(members)
+
+        # Render the add expense form
+        return render(request, 'splitWise/add_expense.html', {'group_id': group_id, 'members': members,'payer': payer})
+
+def add_expense_normal(request, group_id):
+    if request.method == 'POST':
+        sObj = Splitwise(Config.consumer_key, Config.consumer_secret)
+        sObj.setAccessToken(request.session['splitwise_access_token'])
+
+        # Get the selected user
         payer_id = int(request.POST.get('payer'))
 
         # Get the list of group members
@@ -187,7 +258,7 @@ def add_expense(request, group_id):
         members = group.getMembers()
 
         # Render the add expense form
-        return render(request, 'splitWise/add_expense.html', {'group_id': group_id, 'members': members})
+        return render(request, 'splitWise/add_expense_normal.html', {'group_id': group_id, 'members': members})
 
 
 
